@@ -31,7 +31,7 @@ namespace API.Controllers
             return await _context.Users.FindAsync(id);
         }
         [HttpGet("GetFullSentence")]
-        // api/Users/sentence
+        // api/Users/sentence+
         public async Task<ActionResult<string>> GetFullSentence()
         {
             return await Task.Run(() =>
@@ -39,8 +39,7 @@ namespace API.Controllers
                 string listUser = string.Empty;
                 List<AppUser> list = _context.Users.ToList();
                 foreach (AppUser user in list)          
-                    listUser = listUser + user.Id + " - " + user.UserName + Environment.NewLine;
-                
+                    listUser = listUser + user.Id + " - " + user.UserName + Environment.NewLine;             
                 return listUser;
             });
             
